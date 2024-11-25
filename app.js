@@ -8,7 +8,7 @@ dotenv.config();
 connectDb();
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://resume-builder-theta-ten.vercel.app/',
   }));
 app.get("/",(req,res)=>{
   res.send("<H1>Backend Server is Running<H1\>")
