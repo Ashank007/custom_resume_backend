@@ -14,7 +14,10 @@ const makepdf = async (req, res) => {
   try {
     const { data } = req.body;
     const htmlContent = `${data}`;
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+});
     const page = await browser.newPage();
     await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
     const pdfPath = path.join(__dirname, 'output.pdf');
