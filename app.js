@@ -8,7 +8,7 @@ dotenv.config();
 connectDb();
 const app = express();
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: "*",
   }));
 app.get("/",(req,res)=>{
   res.send("<H1>Backend Server is Running<H1\>")
